@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://bi1o513pjir5m"]
+
+[ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_tlbnx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ddqvb"]
+bg_color = Color(0.811056, 0.521875, 0.323406, 1)
+shadow_size = 10
+shadow_offset = Vector2(10, 10)
+
+[sub_resource type="SystemFont" id="SystemFont_4nq63"]
+font_names = PackedStringArray("Impact")
+
+[sub_resource type="SystemFont" id="SystemFont_xglhw"]
+font_names = PackedStringArray("Impact")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71f2l"]
+bg_color = Color(1, 0.210762, 0.718224, 1)
+
+[node name="GameOver" type="CanvasLayer"]
+script = ExtResource("1_tlbnx")
+
+[node name="GameOver" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -125.0
+offset_right = 200.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ddqvb")
+
+[node name="Result" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -75.0
+offset_right = 150.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = SubResource("SystemFont_4nq63")
+theme_override_font_sizes/font_size = 50
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Restart" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = 5.0
+offset_right = 75.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("SystemFont_xglhw")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_71f2l")
+text = "TRY AGAIN"
+
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
